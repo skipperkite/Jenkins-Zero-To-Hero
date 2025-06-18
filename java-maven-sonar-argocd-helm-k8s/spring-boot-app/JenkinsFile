@@ -26,6 +26,8 @@ pipeline {
     stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://54.197.79.201:9000"
+        JAVA_HOME = "/usr/lib/jvm/temurin-17-jdk-amd64"
+        PATH = "${JAVA_HOME}/bin:$PATH" 
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
