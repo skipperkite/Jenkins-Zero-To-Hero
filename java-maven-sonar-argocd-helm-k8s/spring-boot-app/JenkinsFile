@@ -13,6 +13,10 @@ pipeline {
       }
     }
     stage('Build and Test') {
+      environment {
+        JAVA_HOME = "/usr/lib/jvm/temurin-17-jdk-amd64"
+        PATH = "${JAVA_HOME}/bin:$PATH"
+      }
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
